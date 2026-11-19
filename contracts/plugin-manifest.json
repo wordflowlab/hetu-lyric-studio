@@ -586,7 +586,7 @@
     "actions": [
       {
         "id": "list_projects",
-        "title": "查找筹备工程",
+        "title": "查找歌词工程",
         "effect": "read",
         "input_schema": {
           "type": "object",
@@ -613,7 +613,7 @@
       },
       {
         "id": "get_project",
-        "title": "读取固定筹备工程",
+        "title": "读取固定歌词工程",
         "effect": "read",
         "input_schema": {
           "type": "object",
@@ -643,7 +643,7 @@
       },
       {
         "id": "save_project",
-        "title": "保存完整筹备工程",
+        "title": "保存完整歌词工程",
         "effect": "managed_write",
         "input_schema": {
           "type": "object",
@@ -1318,7 +1318,7 @@
       },
       {
         "id": "compare_versions",
-        "title": "比较固定筹备修订",
+        "title": "比较固定歌词修订",
         "effect": "read",
         "input_schema": {
           "type": "object",
@@ -1360,7 +1360,7 @@
       },
       {
         "id": "export_project",
-        "title": "分块导出完整筹备数据",
+        "title": "分块导出完整歌词数据",
         "effect": "read",
         "input_schema": {
           "type": "object",

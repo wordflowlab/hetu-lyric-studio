@@ -13,7 +13,7 @@ import {importAsset} from './support/assets.ts';
 import {start} from './support/machine.ts';
 test('正式制品42动作、真实PCM、固定歌词、LRC、返工、CLI/MCP与生命周期',{timeout:1200000},async t=>{
  const c=await start();let serial=0;const key=()=> 'lyric-'+(++serial),files:any[]=[];
- async function artifact(action:string,r:any,args:any={}){let offset=0;const chunks:Buffer[]=[];let expected:string|undefined;do{const d=await c.invoke(action,{...selection(r),...args,offset,max_bytes:1024});const b=Buffer.from(d.base64,'base64');assert.equal(sha(b),d.chunk_sha256);assert.equal(d.offset,offset);expected??=d.sha256;assert.equal(d.sha256,expected);chunks.push(b);offset+=b.length;if(d.next_offset===null)break;assert.equal(d.next_offset,offset);}while(offset<1000000);const bytes=Buffer.concat(chunks);assert.equal(sha(bytes),expected);return bytes;}
+ async function artifact(action:string,r:any,args:any={}){let offset=0;const chunks:Buffer[]=[];let expected:string|undefined;do{const d=await c.invoke(action,{...selection(r),...args,offset,max_bytes:16384});const b=Buffer.from(d.base64,'base64');assert.equal(sha(b),d.chunk_sha256);assert.equal(d.offset,offset);expected??=d.sha256;assert.equal(d.sha256,expected);chunks.push(b);offset+=b.length;if(d.next_offset===null)break;assert.equal(d.next_offset,offset);}while(offset<1000000);const bytes=Buffer.concat(chunks);assert.equal(sha(bytes),expected);return bytes;}
  try{
   assert.equal(c.cap.actions.length,manifest.contributions.actions.length);assert.deepEqual((await c.client.listTools()).tools.map((t:any)=>t.name),c.tools);
   for(const resource of [undefined,'references/workflows.md','references/operations.md'])assert.ok((await c.invoke('skills.read',{skill_id:'lyric-studio',...(resource?{resource}:{})})).content.length>100);

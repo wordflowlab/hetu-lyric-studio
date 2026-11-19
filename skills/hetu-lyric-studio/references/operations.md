@@ -4,13 +4,13 @@
 
 | 动作 | 用途 | 必填参数 | 效果 |
 | --- | --- | --- | --- |
-| list_projects | 查找筹备工程 |  | read |
-| get_project | 读取固定筹备工程 | object_id | read |
-| save_project | 保存完整筹备工程 | expected_revision, expected_sha256, operation_key, content | managed_write |
+| list_projects | 查找歌词工程 |  | read |
+| get_project | 读取固定歌词工程 | object_id | read |
+| save_project | 保存完整歌词工程 | expected_revision, expected_sha256, operation_key, content | managed_write |
 | get_source | 分块读取固定来源 | object_id, source_index | read |
 | get_basis | 读取固定专业依据 | object_id, basis_index | read |
-| compare_versions | 比较固定筹备修订 | object_id, from_revision, to_revision | read |
-| export_project | 分块导出完整筹备数据 | object_id, format | read |
+| compare_versions | 比较固定歌词修订 | object_id, from_revision, to_revision | read |
+| export_project | 分块导出完整歌词数据 | object_id, format | read |
 | build_context | 准备有界创作上下文 | object_id, goal, max_chars | read |
 | create_handoff | 准备本工程AI接续 | object_id, goal | read |
 | get_operation | 回读原操作 | operation_key | read |
