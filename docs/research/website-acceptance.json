@@ -1,0 +1,14 @@
+{
+  "recorded_at": "2026-11-19",
+  "plugin_center": "https://hetu.limeai.run/plugins/lyric-studio/",
+  "english_plugin_center": "https://hetu.limeai.run/en/plugins/lyric-studio/",
+  "blog": "https://hetu.limeai.run/blog/line-to-take/",
+  "deployment": "https://eb6fee0d.hetu-website-3uu.pages.dev",
+  "website_source_commit": "2c85cc973fb0ad38203580ecced917a4bb6813de",
+  "browser_checks": 28,
+  "local_browser_checks": 28,
+  "public_byte_responses": 11,
+  "public_release_links": 6,
+  "responses_match_build_without_normalization": true,
+  "host_evidence": "https://github.com/limecloud/hetu/blob/main/docs/research/evidence/lyric-studio-release-2026-11-19.json"
+}
