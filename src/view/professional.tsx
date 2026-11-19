@@ -2,12 +2,13 @@ import React,{useState,useEffect,useRef} from 'react';
 import {readArtifact} from './artifact.ts';
 const names:Record<string,string>={intro:'前奏',verse:'主歌',pre_chorus:'预副歌',chorus:'副歌',bridge:'桥段',instrumental:'器乐',outro:'尾声',other:'其他'};
 export function ProfessionalView({p,tab,invoke,run,show,download,write,selection}:any){
- const [report,setReport]=useState<any>(),[takeId,setTake]=useState(''),[audioURL,setURL]=useState(''),[meta,setMeta]=useState<any>(),[time,setTime]=useState(0),[text,setText]=useState(''),[preview,setPreview]=useState<any>(),[sourceIndex,setSource]=useState(0),[target,setTarget]=useState('audio'),[noteText,setNote]=useState(''),[lineId,setLine]=useState('');const audio=useRef<HTMLAudioElement>(null),url=useRef('');
+ const [reportState,setReport]=useState<any>(),[takeId,setTake]=useState(''),[audioURL,setURL]=useState(''),[meta,setMeta]=useState<any>(),[time,setTime]=useState(0),[text,setText]=useState(''),[preview,setPreview]=useState<any>(),[sourceIndex,setSource]=useState(0),[target,setTarget]=useState('audio'),[noteText,setNote]=useState(''),[lineId,setLine]=useState('');const audio=useRef<HTMLAudioElement>(null),url=useRef('');
  useEffect(()=>()=>{if(url.current)URL.revokeObjectURL(url.current);},[]);
  useEffect(()=>{setReport(undefined);setMeta(undefined);setPreview(undefined);if(url.current)URL.revokeObjectURL(url.current);url.current='';setURL('');setTime(0);},[selection().object_id,selection().revision]);
- useEffect(()=>{let alive=true;if(tab===1||tab===3){void run(async()=>{const v=await invoke(tab===1?'rhyme_report':'check_lyrics',selection());if(alive)setReport(v);});}return()=>{alive=false;};},[tab,selection().object_id,selection().revision]);
+ useEffect(()=>{let alive=true;if(tab===1||tab===3){void run(async()=>{const v=await invoke(tab===1?'rhyme_report':'check_lyrics',selection());if(alive)setReport({key:selection().object_id+':'+selection().revision+':'+tab,value:v});});}return()=>{alive=false;};},[tab,selection().object_id,selection().revision]);
  const tid=p.takes.some((t:any)=>t.id===takeId)?takeId:p.takes[0]?.id??'',lid=p.lines.some((l:any)=>l.id===lineId)?lineId:p.lines[0]?.id??'';
  const sorted=[...p.arrangement].sort((a:any,b:any)=>a.order-b.order);const lines=(sid:string)=>p.lines.filter((l:any)=>l.section_id===sid).sort((a:any,b:any)=>a.order-b.order);
+ const reportKey=selection().object_id+':'+selection().revision+':'+tab,report=reportState?.key===reportKey?reportState.value:undefined;
  const take=p.takes.find((t:any)=>t.id===tid),marks=p.marks.filter((m:any)=>m.take_id===tid).sort((a:any,b:any)=>a.start_ms-b.start_ms);
  async function listen(){const inspected=await invoke('inspect_take',{...selection(),take_id:tid});const {bytes}=await readArtifact(invoke,'read_take',{...selection(),take_id:tid});if(url.current)URL.revokeObjectURL(url.current);url.current=URL.createObjectURL(new Blob([bytes as BlobPart],{type:'audio/wav'}));setURL(url.current);setMeta(inspected);setTime(0);}
  return <>

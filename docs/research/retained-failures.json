@@ -15,6 +15,19 @@
       "stage": "local installed machine/cross/UI",
       "reason": "当前本机16GiB、系统load averages254.18/202.52/128.70，读结果及原键回读出现宿主unknown，真实界面600秒超时",
       "resolution": "保留请求及原回执，沿原操作回读；不扩大Core时限或业务预算，使用干净正式macOS运行器复验，其他会话进程保持"
+    },
+    {
+      "stage": "official clean CI UI",
+      "reason": "44440769361的machine和cross通过，UI切换逐句检查到意见备选时旧页rhyme_report被当作check_lyrics，读取不存在字段造成React渲染失败",
+      "resolution": "报告绑定object_id、revision和tab，异步回读只在相同页面作用；最终包复验完整GUI，不改变业务与超时预算"
     }
-  ]
+  ],
+  "original_key_recovery": {
+    "operation_key": "lyric-5",
+    "status": "succeeded",
+    "object_id": "ext_3154b820-33fa-446b-ae0b-d32af36029b1",
+    "revision": 6,
+    "sha256": "84ad71a9454ab430bb808a94ea537a078ce730d0ee5500acdf2e071f693850d6",
+    "repeated_write": false
+  }
 }
