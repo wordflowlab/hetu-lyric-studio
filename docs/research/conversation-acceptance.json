@@ -83,5 +83,13 @@
     "revisions_1_4_preserved": true,
     "original_operation_preserved": true,
     "writes_repeated": false
+  },
+  "public_package_install": {
+    "download_verified": true,
+    "same_revision_sha256": true,
+    "original_operation_preserved": true,
+    "skill_rediscovered": true,
+    "other_plugin_states_unchanged": 28,
+    "shared_app_replaced": false
   }
 }

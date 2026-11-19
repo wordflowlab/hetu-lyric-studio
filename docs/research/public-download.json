@@ -1,0 +1,8 @@
+{
+  "release": "https://github.com/wordflowlab/hetu-lyric-studio/releases/tag/v0.1.0",
+  "source_commit": "35daf3f9c7a92badd7a937d0947757ab7f6b2b85",
+  "package_sha256": "4cbfe60783400aecb99e2f98357f14a2be97fafffd86d6bf45808b131d7cb6a0",
+  "archive_sha256": "5f215af67be55035190b71055464ef745e835b53362dc4a134c9dccb7244833b",
+  "files_byte_identical": 18,
+  "verified": true
+}
