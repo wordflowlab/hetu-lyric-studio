@@ -20,6 +20,21 @@
       "stage": "official clean CI UI",
       "reason": "44440769361的machine和cross通过，UI切换逐句检查到意见备选时旧页rhyme_report被当作check_lyrics，读取不存在字段造成React渲染失败",
       "resolution": "报告绑定object_id、revision和tab，异步回读只在相同页面作用；最终包复验完整GUI，不改变业务与超时预算"
+    },
+    {
+      "stage": "official 0.12.4 text artifact UI",
+      "reason": "实际保存逐句歌词.lrc被宿主有限格式表拒绝；同一根因影响text/plain的TXT。CLI分块导出成功不代表GUI保存成功。",
+      "resolution": "宿主补齐有限TXT／LRC UTF-8公共合同、六项文件服务测试和发行保护，独立发布0.12.6；插件不绕过宿主写任意路径。最终正式制品重跑完整旅程。"
+    },
+    {
+      "stage": "playback error boundary",
+      "reason": "音频错误状态曾共用实际metadata结构，可能污染波形读取。",
+      "resolution": "播放错误独立保存，真实error事件后波形保持，重新载入恢复纳入Electron断言。"
+    },
+    {
+      "stage": "full-page gradient assertion",
+      "reason": "Chromium按三个背景图层返回scroll, scroll, scroll，测试误按单值比较；实际长页底部已连续。",
+      "resolution": "按全部背景图层检查scroll，保留原断言失败与画面，最终正式制品重跑。"
     }
   ],
   "original_key_recovery": {

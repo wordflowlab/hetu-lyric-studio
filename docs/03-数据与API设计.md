@@ -31,3 +31,24 @@ sequenceDiagram
  P-->>A: 波形 时长 缺口与过期意见
  A->>P: 逐句返工并导出固定成果
 ```
+
+## 引用、摘要与演进
+
+| 固定值 | 计算或核验范围 | 变化后的行为 |
+| --- | --- | --- |
+| 专业修订摘要 | Core返回的固定对象字节与修订 | CAS基线改变，旧版仍可读 |
+| line_sha256 | 一句歌词的完整规范JSON | 文字、发音或约束变化均使旧备选／意见待复核 |
+| lyric_sha256 | language_tag、sections、lines、arrangement | 词句或编排改变后旧Take声明过期 |
+| take_sha256 | 当前Take及其全部Mark | 对齐改变后旧听审意见待复核 |
+| 音频sha256 | 固定asset实际字节 | Take不允许改指别的音频，建立新Take |
+| LRC原件sha256 | source_text原始UTF-8字节 | 只追加新Import，不覆盖原文 |
+
+摘要负责识别依据变化，不表示内容质量发生变化。显式发音的调整也可能影响试唱判断，因此保守要求复核；Agent不能把“摘要变化”解释为作者已经听取或否定了旧录音。
+
+格式演进先更新专业Schema与明确转换，再生成新版本包。Host API、manifest_version、专业schema_version及工程format_version各有职责，不以插件包版本替代数据版本；旧固定引用保持原义。当前不需要独立SQL表、二次数据库或常驻音频服务。
+
+## 失败与交付合同
+
+业务失败返回明确状态与原因。未获权、错WorkRef、旧活动包、旧能力、失配来源、CAS冲突和同键异参均不扩大范围；写后超时属于结果未知，优先get_operation回读原键。专业变更与宿主任务候选分别保存，候选不自动写入正文。
+
+桌面使用宿主`save_artifact`保存固定字节，TXT／LRC采用`text/plain`，HTML采用`text/html`。宿主0.12.6核验有限扩展名、UTF-8、完整SHA、预算和当前对象后，由作者选择目标并原子保存；取消保留原文件。CLI/MCP读取同一导出动作的offset、max_bytes、chunk_sha256、total_bytes、sha256和next_offset，先逐块再核验完整文件；导出不要求打开桌面或选择GUI路径。

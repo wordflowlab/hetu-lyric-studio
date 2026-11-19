@@ -136,7 +136,14 @@ test("真实Electron审阅、专业操作、导出、冲突保留与关闭重开
     await page.getByRole('button',{name:'载入实际音频',exact:true}).click();await page.getByRole('button',{name:'定位 钥匙藏着你的名',exact:true}).click();expect(await player.evaluate((a:HTMLAudioElement)=>a.currentTime)).toBeCloseTo(.5,1);await player.evaluate(async(a:HTMLAudioElement)=>{await a.play();});await expect.poll(()=>player.evaluate((a:HTMLAudioElement)=>a.currentTime)).toBeGreaterThan(.6);await player.evaluate((a:HTMLAudioElement)=>a.pause());
     await tab(3);await expect(page.locator('.variant-grid')).toContainText('旧信轻轻落在雨声里');
     await page.getByText('为当前歌词留意见',{exact:true}).click();await page.getByLabel('歌词意见',{exact:true}).fill('保留旧信意象，核对首句呼吸。');await page.getByRole('button',{name:'保存固定意见',exact:true}).click();await expect(page.getByRole('status')).toContainText('已保存');
-    await tab(4);await page.getByRole('button',{name:'导出当前LRC',exact:true}).click();await expect(page.getByRole('status')).toContainText('文件已按固定修订导出');await page.getByRole('button',{name:'导出完整审核本',exact:true}).click();await expect(page.getByRole('status')).toContainText('文件已按固定修订导出');
+    await tab(4);
+    const aligned=await c.invoke('get_project',{object_id:record.object.object_id});
+    for(const [name,action,args] of [['导出当前LRC','export_lrc',{take_id:'demo'}],['导出标记歌词','export_lyrics',{}],['导出完整审核本','export_review',{}]] as const){
+      await page.getByRole('button',{name,exact:true}).click();await expect(page.getByRole('status')).toContainText('文件已按固定修订导出');
+      const fixed=await c.invoke(action,{...selection(aligned),...args,offset:0,max_bytes:65536});
+      expect(fixed.next_offset).toBeNull();const bytes=await readFile(path.join(exports,fixed.filename));
+      expect(sha(bytes)).toBe(fixed.sha256);expect(bytes.equals(Buffer.from(fixed.base64,'base64'))).toBe(true);
+    }
     await page.getByRole('button',{name:'准备固定专业交接',exact:true}).click();await expect(page.getByLabel('固定依据')).toContainText('4000');await page.getByRole('button',{name:'关闭依据'}).click();
     await page.getByRole('button',{name:'让AI处理',exact:true}).click();await expect(page.getByRole('status')).toContainText('已复制');const clipboard=await app.evaluate(({clipboard}:any)=>clipboard.readText());expect(clipboard).toContain('org.wordflowlab.lyric-studio');
     const normalDisplay = await app.context().newCDPSession(page);
@@ -170,6 +177,7 @@ test("真实Electron审阅、专业操作、导出、冲突保留与关闭重开
         const metrics = await page.evaluate(() => ({
           overflow: document.documentElement.scrollWidth > innerWidth + 1,
           background: getComputedStyle(document.body).backgroundImage,
+          backgroundAttachment: getComputedStyle(document.body).backgroundAttachment,
           sizes: [
             ...new Set(
               [...document.querySelectorAll("body *")]
@@ -183,6 +191,7 @@ test("真实Electron审阅、专业操作、导出、冲突保留与关闭重开
         }));
         expect(metrics.overflow).toBe(false);
         expect(metrics.background).toContain("gradient");
+        expect(metrics.backgroundAttachment.split(',').every(value=>value.trim()==='scroll')).toBe(true);
         expect(metrics.sizes.length).toBeLessThanOrEqual(4);
       }
     }
@@ -291,6 +300,7 @@ test("真实Electron审阅、专业操作、导出、冲突保留与关闭重开
           plugin_id: manifest.id,
           package_sha256: c.pkg.package_sha256,
           host_version: c.coreVersion,
+          surface_origin: process.env.HETU_PACKAGED_APP ? 'fixed-packaged-host' : 'development-workbench',
           platform: process.platform,
           architecture: process.arch,
           tabs: config.tabs,

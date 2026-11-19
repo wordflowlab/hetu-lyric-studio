@@ -3,7 +3,7 @@
   "entry": "当前Codex会话既有MCP热发现与正式0.12.4 CLI连续操作",
   "mcp_host_version": "0.12.3",
   "cli_host_version": "0.12.4",
-  "package_sha256": "49801dd6b250b6573482fdf86c6fdb9ecdec406d08b61e803985e8d6f35a2bec",
+  "package_sha256": "4cbfe60783400aecb99e2f98357f14a2be97fafffd86d6bf45808b131d7cb6a0",
   "work_ref": {
     "workspace_id": "workspace_01abb9b1-8e4a-46ac-a8ee-82d200f35875",
     "kind": "novel",
@@ -58,5 +58,23 @@
   "limits": [
     "未执行付费演唱、外发、素材正式选用或作者定稿",
     "本机高负载失败及原键恢复单独保留，未以它冒充远端完整验收"
-  ]
+  ],
+  "creation_package_sha256": "49801dd6b250b6573482fdf86c6fdb9ecdec406d08b61e803985e8d6f35a2bec",
+  "final_package_readback": {
+    "same_revision_sha256": true,
+    "original_operation_preserved": true,
+    "skill_rediscovered": true,
+    "existing_states_preserved": 29
+  },
+  "final_current_mcp": {
+    "runtime_version": "0.12.3",
+    "package_sha256": "4cbfe60783400aecb99e2f98357f14a2be97fafffd86d6bf45808b131d7cb6a0",
+    "capabilities_sha256": "e821b9a32b6be0028b124e21458cb5af594909a8af1bfd98f27fb25256b0b04f",
+    "skill_sha256": "f11d52f6a6470a1bd66525675922ee862ef42e8e3a66600ac3168440779f0a4b",
+    "hot_discovery": true,
+    "skill_read": true,
+    "revision4_sha256": "5d2aea415d8d056c5465ec2ecf8e2e7493039f7137e65bb1321521337d050783",
+    "original_operation_sha256": "5e6ec1ee40872b131e56e5b86a1da71e061ccdae46a46bac0dd72a77ad7785ac",
+    "writes_repeated": false
+  }
 }

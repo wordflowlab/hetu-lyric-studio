@@ -14,7 +14,7 @@
 
 ## 快速上手
 
-Node.js 25、npm和已安装河图。执行：
+Node.js 25、npm和河图0.12.6或更新版本。执行：
 
 ```bash
 npm ci
