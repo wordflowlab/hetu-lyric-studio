@@ -191,7 +191,7 @@ test("真实Electron审阅、专业操作、导出、冲突保留与关闭重开
         }));
         expect(metrics.overflow).toBe(false);
         expect(metrics.background).toContain("gradient");
-        expect(metrics.backgroundAttachment.split(',').every(value=>value.trim()==='scroll')).toBe(true);
+        expect(metrics.backgroundAttachment.split(',').every((value:string)=>value.trim()==='scroll')).toBe(true);
         expect(metrics.sizes.length).toBeLessThanOrEqual(4);
       }
     }
