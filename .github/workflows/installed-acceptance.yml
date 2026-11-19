@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: limecloud/hetu
-          ref: 3617eb7cabeda135f46d475eff28488d470f3bbe
+          ref: b75293837aaa220803b9dc964ba72b8646fa7244
           path: host
           persist-credentials: false
       - uses: actions/setup-node@v4

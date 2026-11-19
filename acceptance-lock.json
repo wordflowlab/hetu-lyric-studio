@@ -1,8 +1,8 @@
 {
   "host": {
-    "version": "0.12.4",
-    "git_sha": "3617eb7cabeda135f46d475eff28488d470f3bbe",
-    "archive_sha256": "39c55fea493132c172dfe4d4da34a082831540afedc4eda0de6636dd7e1b0f0c"
+    "version": "0.12.6",
+    "git_sha": "b75293837aaa220803b9dc964ba72b8646fa7244",
+    "archive_sha256": "de012d76bb9751d6f2ed78427c6887563fcfd4455ae19717c6f65a9182700ab3"
   },
   "plugin": {
     "slug": "lyric-studio",
