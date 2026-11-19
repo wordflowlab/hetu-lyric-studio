@@ -1,0 +1,19 @@
+{
+  "scope": "\u4ec5\u8054\u5408\u6d4b\u8bd5\u4f9d\u8d56\uff0c\u4e0d\u662f\u8fd0\u884c\u65f6\u4f9d\u8d56",
+  "peers": [
+    {
+      "slug": "audio-drama",
+      "version": "0.1.0",
+      "package_sha256": "95ab0357cce70a38643070f144a3b7a1c7a7d697b3573b1c0cc67c728584fa23",
+      "archive_sha256": "5bb4e2f79a9c46c1aff8150929e6b2e8cea2b462077d530d06017ac5e2932df0",
+      "source_commit": "5e55c7c02928f96801dedbe0cbaef29bc1fc2d40"
+    },
+    {
+      "slug": "video-studio",
+      "version": "0.1.0",
+      "package_sha256": "ef99e6eb1767342f4c1994a0b9ed1b3c684dd8c25f513e7e4ea7db2add5d32f5",
+      "archive_sha256": "e7e792767e2eb4d13e3fe7e78c422673693ef83cb6cbccee1ee6ce60f13aec7b",
+      "source_commit": "448ac7ff3a71ddfc91f9aa9664f6d26ec483c41c"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "host": {
+    "version": "0.12.4",
+    "git_sha": "3617eb7cabeda135f46d475eff28488d470f3bbe",
+    "archive_sha256": "39c55fea493132c172dfe4d4da34a082831540afedc4eda0de6636dd7e1b0f0c"
+  },
+  "plugin": {
+    "slug": "lyric-studio",
+    "version": "0.1.0",
+    "package_sha256": "85f3bd48711745cff94a9321b7a5431247473c7627973a1c8ec89ba092c42879"
+  }
+}

@@ -1,0 +1,36 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import path from 'node:path';
+import {start} from './support/machine.ts';
+import {fixedScript} from './support/fixed-script.ts';
+import {candidate} from './support/creative.ts';
+import {importAsset} from './support/assets.ts';
+import {scenario,original,selection,base,addTake,wav,lrc,sha} from './support/scenario.ts';
+const peers=JSON.parse(await readFile('peer-lock.json','utf8')).peers;
+test('独立视频歌词到真实混音和视听工程，固定回读、返工与宿主候选',{timeout:1200000},async t=>{
+ const c=await start('video'),stages:string[]=[],downstream:any[]=[];
+ async function connect(slug:string){const peer=peers.find((v:any)=>v.slug===slug),directory=path.resolve('output/peers',slug,peer.version,'package'),pkg=await c.ok('hetu_plugins_inspect_package',{package_directory:directory});assert.equal(pkg.package_sha256,peer.package_sha256);await c.ok('hetu_plugins_apply',{action:'install',plugin_id:pkg.manifest.id,package_directory:directory,package_sha256:pkg.package_sha256,expected_sha256:(await c.ok('hetu_plugins_inspect')).state_sha256,authorization_note:'本轮用户要求完整插件验收，仅固定公开包与隔离作品',operation_key:'cross-install-'+slug});const binding={...c.binding,plugin_id:pkg.manifest.id,package_sha256:pkg.package_sha256},cap=await c.ok('hetu_plugins_capabilities',binding);const invoke=async(action:string,args:any)=>{const r=await c.ok('hetu_plugins_invoke',{...binding,capabilities_sha256:cap.capabilities_sha256,action,arguments:args});assert.equal(r.result.status,'succeeded',JSON.stringify(r));return r.result.data;};await invoke('skills.read',{skill_id:pkg.manifest.contributions.skills[0].id});return {pkg,invoke};}
+ try{
+  const source=await fixedScript(c,original,'cross-lyrics'),asset=await importAsset(c,wav(),'节拍测试音.wav','cross-audio');const p=addTake(scenario());
+  let r=await c.invoke('save_project',{content:p,source_refs:[source.source_ref,asset],expected_revision:0,expected_sha256:'',operation_key:'cross-project'});
+  r=await c.invoke('import_lrc',{...base(r,'cross-lrc'),take_id:'demo',import_id:'lrc',content:lrc(p)});const originalHead=await c.ok('hetu_read_work',{management_ref:c.management,work_ref:c.work});
+  stages.push('独立视频保存自身固定歌词资料和真实PCM测试音，重复副歌逐次对齐');
+  const handoff=await c.invoke('audio_handoff',{...selection(r),take_id:'demo',target:'audio'}),audio=await connect('audio-drama');
+  const ap={format_version:1,title:'雨港片尾声音接续',basis_refs:[handoff.basis_ref],roles:[],lines:[],takes:[{id:'music',title:'原创测试节拍 非演唱',line_id:null,kind:'music',asset_source_index:0,speech_checked:false}],clips:[{id:'music-clip',take_id:'music',start_ms:0,in_ms:0,out_ms:4000,gain_db:-3,pan:0,fade_in_ms:20,fade_out_ms:40}],notes:[]};
+  const ar=await audio.invoke('save_project',{content:ap,source_refs:[asset],expected_revision:0,expected_sha256:'',operation_key:'cross-mix'});assert.equal((await audio.invoke('get_basis',{...selection(ar),basis_index:0})).basis.sha256,r.sha256);await audio.invoke('check_mix',selection(ar));
+  const chunks:Buffer[]=[];let offset=0,expected:string|undefined;do{const part=await audio.invoke('render_mix',{...selection(ar),offset,max_bytes:4096});const b=Buffer.from(part.base64,'base64');assert.equal(sha(b),part.chunk_sha256);expected??=part.sha256;assert.equal(part.sha256,expected);chunks.push(b);offset=part.next_offset;if(offset===null)break;}while(offset<1000000);
+  const mix=Buffer.concat(chunks);assert.equal(sha(mix),expected);assert.equal(mix.toString('ascii',0,4),'RIFF');assert.equal(mix.readUInt32LE(4)+8,mix.length);const mixedAsset=await importAsset(c,mix,'固定片尾混音.wav','cross-mixed');
+  downstream.push({owner_plugin_id:audio.pkg.manifest.id,object_id:ar.object.object_id,revision:ar.object.revision,sha256:ar.sha256});stages.push('有声剧回读固定歌词依据，接入同作品实际音频并产出完整立体声WAV；未冒充演唱');
+  const video=await connect('video-studio'),vp=JSON.parse(await readFile('tests/fixtures/video-studio.json','utf8'));vp.title='雨港片尾音乐工程';vp.constraints='固定歌词依据：'+JSON.stringify(handoff.basis_ref)+'；固定声音依据：'+JSON.stringify(downstream[0]);vp.nodes[1].sound='片尾接入固定混音，测试样本不是成片';vp.nodes[1].estimated_duration_ms=4000;vp.nodes[1].asset_ids=['song-audio'];vp.assets=[{id:'song-audio',title:'固定片尾混音',role:'audio',source_index:1,notes:'原创测试音，已完整解码，不是作者成片认可',archived:false}];
+  const vr=await video.invoke('save_project',{content:vp,source_refs:[source.source_ref,mixedAsset],expected_revision:0,expected_sha256:'',operation_key:'cross-video'});await video.invoke('check_project',selection(vr));assert.equal((await video.invoke('get_project',selection(vr))).sha256,vr.sha256);downstream.push({owner_plugin_id:video.pkg.manifest.id,object_id:vr.object.object_id,revision:vr.object.revision,sha256:vr.sha256});
+  r=await c.invoke('save_project',{...base(r,'cross-basis'),content:{...r.object.content,basis_refs:downstream}});for(let n=0;n<2;n++)assert.equal((await c.invoke('get_basis',{...selection(r),basis_index:n})).basis.sha256,downstream[n].sha256);stages.push('视听工程固定关联真实混音，歌词回读两个下游成果并保留原来源');
+  const old=r;r=await c.invoke('apply_variant',{...base(r,'cross-revise'),variant_id:'variant-1'});assert.equal((await c.invoke('check_lyrics',selection(r))).takes[0].stale_take,true);assert.equal((await c.invoke('get_project',selection(old))).sha256,old.sha256);
+  await candidate(c,'片尾歌词首句改为“旧信轻轻落在雨声里”。先重录并重新核对LRC，保留原副歌与旧录音。','cross-following-candidate','outline','outline');assert.equal((await c.ok('hetu_read_work',{management_ref:c.management,work_ref:c.work})).sha256,originalHead.sha256);stages.push('逐句返工标明旧录音与旧时间，宿主准备后续候选，原作品及旧专业版本保持');
+  const dir=process.env.HETU_RECEIPT_DIRECTORY??'output';await mkdir(dir,{recursive:true});await writeFile(path.join(dir,'片尾混音.wav'),mix);await writeFile(path.join(dir,'cross-acceptance.json'),JSON.stringify({recorded_at:new Date().toISOString(),host_version:c.coreVersion,package_sha256:c.pkg.package_sha256,peers,stages,downstream,actual_mix:{sha256:sha(mix),bytes:mix.length,format:'PCM16 WAV stereo',duration_ms:4000},original_sha256:originalHead.sha256,adopted:false,finalized:false,limits:['合成测试音不是演唱品质验收','未执行付费调用、外发或成片选用']},null,2)+'\n');t.diagnostic(c.directory);
+ }finally{await c.client.close();}
+});
+test('独立剧本与小说都以自己的固定资料创作歌词，跨作品拒绝',{timeout:600000},async t=>{
+ const receipts:any[]=[];for(const kind of ['drama','novel']){const c=await start(kind);try{const source=await fixedScript(c,original,'independent-'+kind);const r=await c.invoke('save_project',{content:scenario(),source_refs:[source.source_ref],expected_revision:0,expected_sha256:'',operation_key:'project'});assert.equal(r.object.work_ref.kind,kind);assert.equal((await c.invoke('get_source',{...selection(r),source_index:0})).source.resource.body,original);assert.notEqual((await c.call('hetu_plugins_capabilities',{...c.binding,work_ref:{...c.work,object_id:kind+'_missing'}})).status,'succeeded');receipts.push({kind,object_id:r.object.object_id,revision:r.object.revision,sha256:r.sha256,wrong_work_rejected:true});}finally{await c.client.close();}}
+ const dir=process.env.HETU_RECEIPT_DIRECTORY??'output';await mkdir(dir,{recursive:true});await writeFile(path.join(dir,'cross-work-types.json'),JSON.stringify({recorded_at:new Date().toISOString(),receipts,adopted:false,finalized:false},null,2)+'\n');
+});
