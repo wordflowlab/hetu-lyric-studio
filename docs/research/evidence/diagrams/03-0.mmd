@@ -1,0 +1,13 @@
+sequenceDiagram
+ participant A as Codex
+ participant H as 河图稳定CLI MCP
+ participant P as 歌词工坊
+ participant C as Core
+ A->>H: 发现活动包和Skill
+ A->>H: 固定原文与已有工程
+ A->>P: 保存歌词与明确约束
+ P->>C: 来源 CAS 原键核验
+ A->>P: 添加固定实际音频与LRC映射
+ P->>C: 分块读取并核验完整音频
+ P-->>A: 波形 时长 缺口与过期意见
+ A->>P: 逐句返工并导出固定成果

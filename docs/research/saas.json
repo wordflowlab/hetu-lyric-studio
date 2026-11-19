@@ -1,0 +1,46 @@
+[
+  {
+    "url": "https://www.lyricsstudio.net/",
+    "error": "HTTP Error 404: ",
+    "scope": "未取得，不作为功能依据"
+  },
+  {
+    "url": "https://www.masterwriter.com/songwriters/",
+    "error": "HTTP Error 403: Forbidden",
+    "scope": "未取得，不作为功能依据"
+  },
+  {
+    "url": "https://www.rhymezone.com/",
+    "error": "HTTP Error 403: Forbidden",
+    "scope": "未取得，不作为功能依据"
+  },
+  {
+    "url": "https://lyricstudio.net/",
+    "status": 200,
+    "title": "LyricStudio",
+    "sha256": "1c6f9ff9663f1d9c6680faa871a8134f4f0b01c527d10b83bb1c3e55b3dbfdf1",
+    "scope": "仅公开产品页，未登录业务实测",
+    "observed_terms": [
+      "LyricS"
+    ]
+  },
+  {
+    "url": "https://songcraft.io/",
+    "status": 200,
+    "title": "Songcraft: Online Collaborative Songwriting Software",
+    "sha256": "db563c2155d9629dc38f20c218fb335713fc51a798b6583ff5726680e0fceeca",
+    "scope": "仅公开产品页，未登录业务实测",
+    "observed_terms": [
+      "Collaborative",
+      "Rhyme",
+      "Songwriting",
+      "collaborate",
+      "collaborative",
+      "collaborators",
+      "lyrics",
+      "rhyme",
+      "songwriting",
+      "syllable"
+    ]
+  }
+]

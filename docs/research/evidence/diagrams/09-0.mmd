@@ -1,0 +1,11 @@
+flowchart TB
+ A[作者阅读 听审与决定] --> X[外部Codex]
+ X --> H[河图稳定CLI MCP]
+ H --> P[插件应用用例]
+ P --> D[TS领域 曲式 韵尾标注 备选 LRC及时间映射]
+ P --> S[公开SDK ProjectStore]
+ S --> C[Rust Core 作品 来源 修订 事务]
+ P --> V[React审核工作面]
+ V --> A
+ X --> M[外部演唱 作曲与识别工具]
+ M --> C

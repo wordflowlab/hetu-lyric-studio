@@ -1,0 +1,20 @@
+{
+  "recorded_at": "2026-11-19",
+  "failures": [
+    {
+      "stage": "initial manifest validation",
+      "reason": "同包Skill及视图使用了当前宿主Schema未接受的resources和本地化title对象",
+      "resolution": "按实际清单合同移除额外字段，view title使用字符串并核对lyric_project归属，构建通过"
+    },
+    {
+      "stage": "unit character fixture",
+      "reason": "人工字数断言11，Unicode字母数字实际为10",
+      "resolution": "按明确口径修正测试断言，46项通过"
+    },
+    {
+      "stage": "local installed machine/cross/UI",
+      "reason": "当前本机16GiB、系统load averages254.18/202.52/128.70，读结果及原键回读出现宿主unknown，真实界面600秒超时",
+      "resolution": "保留请求及原回执，沿原操作回读；不扩大Core时限或业务预算，使用干净正式macOS运行器复验，其他会话进程保持"
+    }
+  ]
+}

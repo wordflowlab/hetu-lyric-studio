@@ -1,0 +1,50 @@
+[
+  {
+    "repository": "https://github.com/alexiltabaccaio/suno-smart-lyrics-editor.git",
+    "commit": "19722bb135e2882d90fecf1d29ef68888251dccb",
+    "license": "MIT",
+    "scope": "只读设计对照，不复制示例歌词或产品代码；未运行上游安装脚本",
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "bb39812ada8576d3a0becf8b2b1ea2f8693c2f20e12fe3baea3f55c040ffb5c4"
+      },
+      {
+        "path": "LICENSE",
+        "sha256": "ddf8a80458868e24fb9efca18cc25a7b5ef4c146dd41355fe10cf11fd959af73"
+      },
+      {
+        "path": "src/lib/tagUtils.ts",
+        "sha256": "ac978cb169ec333aa8a100abfacb78e869a0560a621d84bd7c169b667264a776"
+      },
+      {
+        "path": "src/hooks/useSmartInsert.ts",
+        "sha256": "60eb614a3c27a0386b5420cdffc65ef65941faf1a71a88c83f79ba004da1619b"
+      }
+    ]
+  },
+  {
+    "repository": "https://github.com/lyswhut/lrc-file-parser.git",
+    "commit": "ae8323d369569b53923f34247e97d39e30f227ee",
+    "license": "MIT",
+    "scope": "只读设计对照，不复制示例歌词或产品代码；未运行上游安装脚本",
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "71e9ba7f23f8adf776179f2622eeda4e2a3cc85e7eb7531ac53adff0b303a05d"
+      },
+      {
+        "path": "LICENSE",
+        "sha256": "99feaa133d4339c951c559c16b657c47d8afe7f84c3c53c89146530d7ac8a096"
+      },
+      {
+        "path": "src/index.ts",
+        "sha256": "8c71fbca440b0a3af9c0a2f1de5a680336b2059342d87df7a612b42ad9810352"
+      },
+      {
+        "path": "src/utils.ts",
+        "sha256": "a8f6acf41d3dbbaff5390b7ce5c2fcfa4049a94a8859dbcab38a96dfc354d0f1"
+      }
+    ]
+  }
+]
