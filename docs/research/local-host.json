@@ -1,0 +1,10 @@
+{
+  "version": "0.12.6",
+  "git_sha": "b75293837aaa220803b9dc964ba72b8646fa7244",
+  "archive_sha256": "de012d76bb9751d6f2ed78427c6887563fcfd4455ae19717c6f65a9182700ab3",
+  "signature_verified": true,
+  "gatekeeper": "output/host-0.12.6/expanded/Hetu.app: accepted\nsource=Notarized Developer ID",
+  "staple": "Processing: /Users/coso/Documents/dev/ai/wordflowlab/hetu-production-host-20261119/output/host-0.12.6/expanded/Hetu.app\nThe validate action worked!",
+  "source_build": false,
+  "scope": "隔离正式安装副本，不替换共享应用"
+}

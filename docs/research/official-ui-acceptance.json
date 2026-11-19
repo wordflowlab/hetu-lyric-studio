@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-19T03:02:10.276Z",
+  "plugin_id": "org.wordflowlab.lyric-studio",
+  "package_sha256": "4cbfe60783400aecb99e2f98357f14a2be97fafffd86d6bf45808b131d7cb6a0",
+  "host_version": "hetu 0.12.6",
+  "surface_origin": "fixed-packaged-host",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "tabs": [
+    "歌词结构",
+    "逐句检查",
+    "试听对照",
+    "意见与备选",
+    "专业交付"
+  ],
+  "empty_state": true,
+  "professional_actions": true,
+  "artifact_files": [
+    "歌词.txt",
+    "歌词审核本.html",
+    "逐句歌词.lrc"
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "widths": [
+    1360,
+    760
+  ],
+  "reduced_transparency": true,
+  "CAS_preserves_input": true,
+  "explicit_rebase": true,
+  "close_reopen": true,
+  "dirty_buffer_restore": true,
+  "page_errors": [],
+  "limits": [
+    "原生窗口材质、系统输入法及Windows/Linux未由本测试证明"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-11-19T03:01:09.841Z",
+  "receipts": [
+    {
+      "kind": "drama",
+      "object_id": "ext_cc6b8af4-6a0f-4eaf-a524-228edeabbf10",
+      "revision": 1,
+      "sha256": "876359216f528b36b522c36d9f0417a9e550bcce6922f7889c0be7c17f34ed6b",
+      "wrong_work_rejected": true
+    },
+    {
+      "kind": "novel",
+      "object_id": "ext_1c1cab8d-efa5-42bc-b526-4e64010293d2",
+      "revision": 1,
+      "sha256": "0455ba83ef93ba7af58889750f2953147c9b1833efd16ab16baab91c14329281",
+      "wrong_work_rejected": true
+    }
+  ],
+  "adopted": false,
+  "finalized": false
+}

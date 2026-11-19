@@ -1,0 +1,40 @@
+{
+  "recorded_at": "2026-11-19",
+  "source_verification": "https://github.com/wordflowlab/hetu-lyric-studio/actions/runs/44445498303",
+  "official_installed_verification": "https://github.com/wordflowlab/hetu-lyric-studio/actions/runs/44447633510",
+  "verification_source_commit": "67a362e27e6243db2c28469579bc7e4972757215",
+  "host": {
+    "version": "0.12.6",
+    "git_sha": "b75293837aaa220803b9dc964ba72b8646fa7244",
+    "archive_sha256": "de012d76bb9751d6f2ed78427c6887563fcfd4455ae19717c6f65a9182700ab3",
+    "source_build": false,
+    "signature_verified": true,
+    "gatekeeper": "/Applications/Hetu.app: accepted\nsource=Notarized Developer ID",
+    "staple": "Processing: /Applications/Hetu.app\nThe validate action worked!"
+  },
+  "package_sha256": "4cbfe60783400aecb99e2f98357f14a2be97fafffd86d6bf45808b131d7cb6a0",
+  "archive_sha256": "5f215af67be55035190b71055464ef745e835b53362dc4a134c9dccb7244833b",
+  "actions": 42,
+  "unit_tests": 46,
+  "full_pipeline": [
+    {
+      "test": "machine",
+      "exit_code": 0
+    },
+    {
+      "test": "cross",
+      "exit_code": 0
+    },
+    {
+      "test": "ui",
+      "exit_code": 0
+    }
+  ],
+  "current_codex": "conversation-acceptance.json",
+  "actual_work_surfaces": "ui-review.json",
+  "limits": [
+    "macOS arm64专业开发预览；宿主三平台发行不等于本插件Windows/Linux专业实测",
+    "实际音频为原创合成节拍，仅证明时长、波形、播放、混音与接续",
+    "未执行真实演唱质量、付费调用、外发、作者选用或定稿"
+  ]
+}

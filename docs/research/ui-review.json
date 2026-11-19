@@ -1,0 +1,163 @@
+{
+  "recorded_at": "2026-11-19",
+  "package_sha256": "4cbfe60783400aecb99e2f98357f14a2be97fafffd86d6bf45808b131d7cb6a0",
+  "host_version": "0.12.6",
+  "source": "公开签名公证正式制品的隔离安装副本，使用原创演示资料",
+  "reviewed_surfaces": [
+    "五页浅暗1360／760",
+    "空状态",
+    "减少透明度",
+    "实际音频、固定意见、导出与冲突恢复"
+  ],
+  "iterations": [
+    "旧页报告状态串用已修正",
+    "音频错误状态与实际metadata分离",
+    "TXT／LRC宿主文件出口补齐",
+    "长页fixed背景中断改为覆盖全文档的静止渐变并复拍"
+  ],
+  "scores": {
+    "layout": 9,
+    "spacing_alignment": 9,
+    "typography": 9,
+    "colors": 9,
+    "control_states": 9,
+    "interaction": 9
+  },
+  "judgment_basis": [
+    "紧凑顶部与独立工作面，五页任务层级明确",
+    "长页渐变连续、文字纸面稳定、窄窗结构纵向重排无横向溢出",
+    "每页不超过四档字号、最小12px、共享Radix与细边框",
+    "实际播放定位、错误恢复、逐字节导出及取消、CAS保留输入和关闭恢复均通过"
+  ],
+  "limits": [
+    "评分是有实际画面与行为证据的设计判断，不是自动像素认证",
+    "原生窗口材质、系统输入法、Windows／Linux专业实机未验证",
+    "测试音为原创合成节拍，不是演唱或作者听审认可"
+  ],
+  "files": [
+    {
+      "file": "evidence/work-surfaces/dark-1360-view-0.png",
+      "sha256": "5cdbbb338657151ad9dbfa862a85b0afbbecec548244bf909814e725ad2ae7ac"
+    },
+    {
+      "file": "evidence/work-surfaces/dark-1360-view-1.png",
+      "sha256": "66f1c8f00a11f2265fbd850587a4ca181a5bcabda0080f0d709d00a9c3b59dd5"
+    },
+    {
+      "file": "evidence/work-surfaces/dark-1360-view-2.png",
+      "sha256": "8382ec73f9508507028d08d8aa6dc73de573ede29f3d5173609fe52fba9b7a27"
+    },
+    {
+      "file": "evidence/work-surfaces/dark-1360-view-3.png",
+      "sha256": "760f4dee3bdefa998834a232f694e0adac507c09744bab99613950ab653715b9"
+    },
+    {
+      "file": "evidence/work-surfaces/dark-1360-view-4.png",
+      "sha256": "c505dd4174d03093f2c8cd8ce39748def7762ab6b3e637d27a076e850e6f3995"
+    },
+    {
+      "file": "evidence/work-surfaces/dark-1360.png",
+      "sha256": "a364038013fb80a67448708ccf1c80c538395ca66c60edc6a14ae94d3ebb4beb"
+    },
+    {
+      "file": "evidence/work-surfaces/dark-760-view-0.png",
+      "sha256": "80dea2b80cacce0ccefebc0be7e4615581c7b8c2b6c57c26cf0cb869e76a92d3"
+    },
+    {
+      "file": "evidence/work-surfaces/dark-760-view-1.png",
+      "sha256": "b33def8d127f802d55d8937867ca34c08f0304f367ff8462babe06a0110ac29c"
+    },
+    {
+      "file": "evidence/work-surfaces/dark-760-view-2.png",
+      "sha256": "139de060d845b256ba0d1a6b27b9583e5c8b13b0e10a5df2f2f565efb21f868e"
+    },
+    {
+      "file": "evidence/work-surfaces/dark-760-view-3.png",
+      "sha256": "a2839a2c35766652d6f23a957275b106cd7a9e2120003edfd8961bf91e3f843f"
+    },
+    {
+      "file": "evidence/work-surfaces/dark-760-view-4.png",
+      "sha256": "afba33c5e717d5df70433d56104ed4775ababcb83432203ec1ee2e95d8af006f"
+    },
+    {
+      "file": "evidence/work-surfaces/dark-760.png",
+      "sha256": "0740b2aafb72578afa64f255d809b2df1803286208756c909a90476d9e4e68f8"
+    },
+    {
+      "file": "evidence/work-surfaces/empty.png",
+      "sha256": "802e074023967df5239a68747c23af5b4a427cafc176cfbe0d8996840681be76"
+    },
+    {
+      "file": "evidence/work-surfaces/light-1360-view-0.png",
+      "sha256": "8fd0cd9d7ead3d1947b94165aabb8a73c74bc8d0de7408d57aee29bab3fcfd57"
+    },
+    {
+      "file": "evidence/work-surfaces/light-1360-view-1.png",
+      "sha256": "4595ce9ed656b9f21fc261fc201c0d683f27e2cdc827e87c5d9400f687853caa"
+    },
+    {
+      "file": "evidence/work-surfaces/light-1360-view-2.png",
+      "sha256": "f8df49a28bc3292f480999e9cf7facbed6069ab6782ee1e2943d08d4e4009bf4"
+    },
+    {
+      "file": "evidence/work-surfaces/light-1360-view-3.png",
+      "sha256": "5b22c353ba9a09d8d86762b34a5f936fe3bef80f62aa6be815124548859c70bd"
+    },
+    {
+      "file": "evidence/work-surfaces/light-1360-view-4.png",
+      "sha256": "b3576c7eee047e97ea7f31536d7fd2d367ad1f1624ad84de14e497556443d040"
+    },
+    {
+      "file": "evidence/work-surfaces/light-1360.png",
+      "sha256": "06b136e9c6f2456423cec646247380052038df372d645f2d3e2797354372e9bf"
+    },
+    {
+      "file": "evidence/work-surfaces/light-760-view-0.png",
+      "sha256": "77d96076c6ff19a26a4bb6476203152ffbfcd65c833b99f16b58942394ab07df"
+    },
+    {
+      "file": "evidence/work-surfaces/light-760-view-1.png",
+      "sha256": "8beeec9af7b267d2fcd1a05b35170f84560734ecd6bdb402a35d6662eda3d3db"
+    },
+    {
+      "file": "evidence/work-surfaces/light-760-view-2.png",
+      "sha256": "bb1fd219c5ed40358dfe1b04cdb9b6f7011d40ab027285980591586889321881"
+    },
+    {
+      "file": "evidence/work-surfaces/light-760-view-3.png",
+      "sha256": "3501b74574d84e60ac6ac7211f305b489750cd16fe6b78cca6192bfff4caf0da"
+    },
+    {
+      "file": "evidence/work-surfaces/light-760-view-4.png",
+      "sha256": "58a10407dd706695d71aa617d7d7719f55032e2088415c22c44118028751487b"
+    },
+    {
+      "file": "evidence/work-surfaces/light-760.png",
+      "sha256": "a37870ae986c503356725e1aae679ecb3cfb0d852321e74f972f769b5e23b8a5"
+    },
+    {
+      "file": "evidence/work-surfaces/reduced-transparency.png",
+      "sha256": "fc746d4f562c377e878f8fb9fd550034bbd7876865fb6fde9d3847a979cb89a4"
+    },
+    {
+      "file": "evidence/work-surfaces/view-0.png",
+      "sha256": "ad80f45c1cf827a4ce31f89c8efee04b27087b1f15e992f6d92ca34ccec218c1"
+    },
+    {
+      "file": "evidence/work-surfaces/view-1.png",
+      "sha256": "91ecfc4827e35ac77cd076414bd5db9b640b45c0f8d3d94b52e451af89695fce"
+    },
+    {
+      "file": "evidence/work-surfaces/view-2.png",
+      "sha256": "3355ac53251a2e69f336cba429ce629bec7af6e2ab1aaaac316926804e5b1e63"
+    },
+    {
+      "file": "evidence/work-surfaces/view-3.png",
+      "sha256": "54c2889d751624a69a70233b62671475163408ad1c20c21ad36419de8c0ce7fc"
+    },
+    {
+      "file": "evidence/work-surfaces/view-4.png",
+      "sha256": "cdb56dafd2fab6832609554aadb4ed465fbedbee7198bf5336f66940baf9f3eb"
+    }
+  ]
+}

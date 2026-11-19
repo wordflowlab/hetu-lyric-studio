@@ -1,0 +1,53 @@
+{
+  "recorded_at": "2026-11-19T03:00:40.577Z",
+  "host_version": "hetu 0.12.6",
+  "package_sha256": "4cbfe60783400aecb99e2f98357f14a2be97fafffd86d6bf45808b131d7cb6a0",
+  "peers": [
+    {
+      "slug": "audio-drama",
+      "version": "0.1.0",
+      "package_sha256": "95ab0357cce70a38643070f144a3b7a1c7a7d697b3573b1c0cc67c728584fa23",
+      "archive_sha256": "5bb4e2f79a9c46c1aff8150929e6b2e8cea2b462077d530d06017ac5e2932df0",
+      "source_commit": "5e55c7c02928f96801dedbe0cbaef29bc1fc2d40"
+    },
+    {
+      "slug": "video-studio",
+      "version": "0.1.0",
+      "package_sha256": "ef99e6eb1767342f4c1994a0b9ed1b3c684dd8c25f513e7e4ea7db2add5d32f5",
+      "archive_sha256": "e7e792767e2eb4d13e3fe7e78c422673693ef83cb6cbccee1ee6ce60f13aec7b",
+      "source_commit": "448ac7ff3a71ddfc91f9aa9664f6d26ec483c41c"
+    }
+  ],
+  "stages": [
+    "独立视频保存自身固定歌词资料和真实PCM测试音，重复副歌逐次对齐",
+    "有声剧回读固定歌词依据，接入同作品实际音频并产出完整立体声WAV；未冒充演唱",
+    "视听工程固定关联真实混音，歌词回读两个下游成果并保留原来源",
+    "逐句返工标明旧录音与旧时间，宿主准备后续候选，原作品及旧专业版本保持"
+  ],
+  "downstream": [
+    {
+      "owner_plugin_id": "org.wordflowlab.audio-drama",
+      "object_id": "ext_d833f29a-8a4d-4824-88b0-ec1e5e8a474d",
+      "revision": 1,
+      "sha256": "9b5f2e37799915253fd4f6d0d6ea892eae35630e5eabb1a71c114d040b8c9740"
+    },
+    {
+      "owner_plugin_id": "org.wordflowlab.video-studio",
+      "object_id": "ext_4ec220c3-bc60-4f34-8028-036843e5075c",
+      "revision": 1,
+      "sha256": "c7d070c8e45ce1afd29970d86b43335ee753672c0e20be4f310d101d1179b763"
+    }
+  ],
+  "actual_mix": {
+    "sha256": "7c6d0b1b32e164ee8346aba2eaeff2d5a88cb52333f2c194c21f470bf645df00",
+    "bytes": 128044,
+    "format": "PCM16 WAV stereo",
+    "duration_ms": 4000
+  },
+  "adopted": false,
+  "finalized": false,
+  "limits": [
+    "合成测试音不是演唱品质验收",
+    "未执行付费调用、外发或成片选用"
+  ]
+}

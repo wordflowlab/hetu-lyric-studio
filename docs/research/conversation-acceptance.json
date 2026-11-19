@@ -76,5 +76,12 @@
     "revision4_sha256": "5d2aea415d8d056c5465ec2ecf8e2e7493039f7137e65bb1321521337d050783",
     "original_operation_sha256": "5e6ec1ee40872b131e56e5b86a1da71e061ccdae46a46bac0dd72a77ad7785ac",
     "writes_repeated": false
+  },
+  "final_official_cli": {
+    "version": "0.12.6",
+    "package_sha256": "4cbfe60783400aecb99e2f98357f14a2be97fafffd86d6bf45808b131d7cb6a0",
+    "revisions_1_4_preserved": true,
+    "original_operation_preserved": true,
+    "writes_repeated": false
   }
 }
